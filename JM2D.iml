@@ -31,6 +31,8 @@
           <root url="jar://$MODULE_DIR$/jars/lwjgl-opengl-natives-windows.jar!/" />
           <root url="jar://$MODULE_DIR$/jars/lwjgl-opengl.jar!/" />
           <root url="jar://$MODULE_DIR$/jars/lwjgl.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/joml-1.8.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/pngdecoder-1.0.jar!/" />
         </CLASSES>
         <JAVADOC>
           <root url="jar://$MODULE_DIR$/jars/lwjgl-glfw-javadoc.jar!/" />
