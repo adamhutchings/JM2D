@@ -59,6 +59,28 @@ public class Window {
     }
 
     /**
+     * Clear the window.
+     */
+    public void clear() {
+        glClear(GL_COLOR_BUFFER_BIT);
+    }
+
+    /**
+     * Repaint the window and call event handlers.
+     */
+    public void repaint() {
+        glfwSwapBuffers(handle);
+        glfwPollEvents();
+    }
+
+    /**
+     * Is the window open?
+     */
+    public boolean open() {
+        return !glfwWindowShouldClose(handle);
+    }
+
+    /**
      * Window destruction
      */
     public void delete() {
