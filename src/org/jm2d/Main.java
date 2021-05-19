@@ -9,7 +9,9 @@ public class Main {
      * Main method
      */
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        JM2D.init();
+        JM2D.mainloop();
+        JM2D.exit();
     }
 
 }
