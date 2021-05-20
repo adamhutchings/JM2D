@@ -62,7 +62,12 @@ public final class Mesh {
 
     }
 
-    public void render() {
+    public void render(Texture t) {
+
+        // Activate first texture unit
+        glActiveTexture(GL_TEXTURE0);
+        // Bind the texture
+        glBindTexture(GL_TEXTURE_2D, t.getID());
 
         // Draw the mesh
         glBindVertexArray(vaoId);
