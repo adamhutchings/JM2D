@@ -68,6 +68,7 @@ public final class JM2D {
 
     public static void exit() {
         wn.delete();
+        shaderProgram.cleanup();
         Window.exit();
     }
 
