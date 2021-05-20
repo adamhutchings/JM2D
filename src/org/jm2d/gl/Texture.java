@@ -1,5 +1,6 @@
 package org.jm2d.gl;
 
+import static org.jm2d.util.ErrorHandling.error;
 import static org.lwjgl.opengl.GL33.*;
 
 import java.io.FileInputStream;
@@ -39,5 +40,15 @@ public class Texture {
     }
 
     public int getID() { return texId; }
+
+    public static Texture GRASS_TEXTURE;
+
+    public static void createTextures() {
+        try {
+            GRASS_TEXTURE = new Texture("res/grass.png");
+        } catch (Exception e) {
+            error("Error: could not load textures");
+        }
+    }
 
 }
