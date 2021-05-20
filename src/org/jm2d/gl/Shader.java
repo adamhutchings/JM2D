@@ -130,6 +130,10 @@ public class Shader {
         glUniform1i(uniforms.get(uniformName), value);
     }
 
+    public void setUniform(String uniformName, float value) {
+        glUniform1f(uniforms.get(uniformName), value);
+    }
+
     public void setUniform(String uniformName, float[] value) {
         glUniform2fv(uniforms.get(uniformName), value);
     }

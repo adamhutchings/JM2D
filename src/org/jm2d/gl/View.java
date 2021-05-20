@@ -9,6 +9,8 @@ public final class View {
 
     private static float x = 0.1f, y = 0.1f;
 
+    private static float blocksPerScreen = 8;
+
     public static void setPosition(float newX, float newY) {
         x = newX;
         y = newY;
@@ -16,6 +18,10 @@ public final class View {
 
     public static float[] getPos() {
         return new float[]{x, y};
+    }
+
+    public static float getScale() {
+        return blocksPerScreen;
     }
 
 }

@@ -38,6 +38,7 @@ public final class JM2D {
         try {
             shaderProgram.createUniform("texture_sampler");
             shaderProgram.createUniform("camera_pos");
+            shaderProgram.createUniform("scale_factor");
         } catch (Exception e) {
             e.printStackTrace();
             error("Error: could not create uniforms");
@@ -77,6 +78,7 @@ public final class JM2D {
 
         while (wn.open() && running) {
             shaderProgram.setUniform("camera_pos", View.getPos());
+            shaderProgram.setUniform("scale_factor", View.getScale());
             if (mesh != null) mesh.delete();
             mesh = new Mesh(positions, indices, texCoords);
             wn.clear();
