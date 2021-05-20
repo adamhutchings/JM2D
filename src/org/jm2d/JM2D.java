@@ -2,10 +2,7 @@ package org.jm2d;
 
 import static org.jm2d.util.ErrorHandling.error;
 
-import org.jm2d.gl.Mesh;
-import org.jm2d.gl.Shader;
-import org.jm2d.gl.Texture;
-import org.jm2d.gl.Window;
+import org.jm2d.gl.*;
 
 /**
  * Main class of the game. This runs everything, and its methods are called
@@ -40,8 +37,10 @@ public final class JM2D {
 
         try {
             shaderProgram.createUniform("texture_sampler");
+            shaderProgram.createUniform("camera_pos");
         } catch (Exception e) {
-            error("Error: could not create texture_sampler uniform");
+            e.printStackTrace();
+            error("Error: could not create uniforms");
         }
 
         shaderProgram.bind();
@@ -62,14 +61,6 @@ public final class JM2D {
                 0, 1, 3, 3, 1, 2,
         };
 
-        float[] colors = new float[] {
-                1.0f, 0.0f, 0.0f,
-                1.0f, 1.0f, 0.0f,
-                0.0f, 1.0f, 0.0f,
-                0.0f, 0.0f, 1.0f,
-        };
-
-
         float[] positions = new float[] {
                 -0.5f,  0.5f,
                 -0.5f, -0.5f,
@@ -85,6 +76,7 @@ public final class JM2D {
         };
 
         while (wn.open() && running) {
+            shaderProgram.setUniform("camera_pos", View.getPos());
             if (mesh != null) mesh.delete();
             mesh = new Mesh(positions, indices, texCoords);
             wn.clear();
