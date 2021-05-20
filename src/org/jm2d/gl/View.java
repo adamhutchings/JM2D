@@ -1,7 +1,5 @@
 package org.jm2d.gl;
 
-import static org.lwjgl.opengl.GL33.*;
-
 /**
  * Describes the camera position.
  */
