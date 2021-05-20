@@ -9,6 +9,8 @@ import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jm2d.util.FileLoader;
+
 /**
  * Wrapper around a shader to provide a uniform way of handling shaders.
  */
@@ -30,8 +32,12 @@ public class Shader {
             throw new Exception("Unable to create parent shader");
         }
 
-        vertId = createShader("src/shader/" + fileBase + "_vert.glsl", GL_VERTEX_SHADER);
-        fragId = createShader("src/shader/" + fileBase + "_frag.glsl", GL_FRAGMENT_SHADER);
+        vertId = createShader(
+                FileLoader.loadFileAsString("src/shader/" + fileBase + "_vert.glsl"), GL_VERTEX_SHADER
+        );
+        fragId = createShader(
+                FileLoader.loadFileAsString("src/shader/" + fileBase + "_frag.glsl"), GL_FRAGMENT_SHADER
+        );
 
         link();
 
