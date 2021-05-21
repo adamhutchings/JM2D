@@ -1,7 +1,5 @@
 package org.jm2d.world;
 
-import javax.swing.text.DefaultTextUI;
-
 import static org.jm2d.world.Block.BlockType;
 
 /**
