@@ -10,7 +10,7 @@ public final class World {
     ArrayList<Chunk> chunks = new ArrayList<>();
 
     public World() {
-
+        chunks.add(new Chunk(0, 0));
     }
 
     public void render() {
