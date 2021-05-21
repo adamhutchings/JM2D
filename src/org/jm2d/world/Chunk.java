@@ -17,18 +17,20 @@ public class Chunk {
     /**
      * For creating new chunks.
      */
-    private static final Block.BlockType[][] BLANK_CHUNK;
+    private static Block.BlockType[][] BLANK_CHUNK;
 
     /**
      * Position.
      */
     public final int xPos, yPos;
 
-    static {
+    public static void initConstants() {
         BLANK_CHUNK = new Block.BlockType[CHUNK_WIDTH][CHUNK_HEIGHT];
-        for (Block.BlockType[] row : BLANK_CHUNK)
-            for (Block.BlockType type : row)
-                type = AIR;
+        for (int i = 0; i < BLANK_CHUNK.length; ++i) {
+            for (int j = 0; j < BLANK_CHUNK[0].length; ++j) {
+                BLANK_CHUNK[i][j] = AIR;
+            }
+        }
     }
 
     /**
