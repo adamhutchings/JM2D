@@ -11,6 +11,8 @@ public final class World {
 
     public World() {
         blocks.add(new Block(0, 0, Block.BlockType.GRASS));
+        blocks.add(new Block(1, 0, Block.BlockType.DIRT));
+        blocks.add(new Block(2, 0, Block.BlockType.STONE));
     }
 
     public void render() {
