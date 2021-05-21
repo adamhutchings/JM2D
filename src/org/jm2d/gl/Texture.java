@@ -41,12 +41,18 @@ public class Texture {
 
     public int getID() { return texId; }
 
-    public static Texture GRASS_TEXTURE;
+    public static Texture
+            DIRT_TEXTURE,
+            GRASS_TEXTURE,
+            STONE_TEXTURE;
 
     public static void createTextures() {
         try {
+            DIRT_TEXTURE = new Texture("res/dirt.png");
             GRASS_TEXTURE = new Texture("res/grass.png");
+            STONE_TEXTURE = new Texture("res/stone.png");
         } catch (Exception e) {
+            e.printStackTrace();
             error("Error: could not load textures");
         }
     }
