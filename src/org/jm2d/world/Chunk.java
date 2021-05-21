@@ -1,8 +1,8 @@
 package org.jm2d.world;
 
-import org.lwjgl.opengl.INTELBlackholeRender;
+import javax.swing.text.DefaultTextUI;
 
-import static org.jm2d.world.Block.BlockType.*;
+import static org.jm2d.world.Block.BlockType;
 
 /**
  * A "chunk" of blocks in the world. These are loaded and saved as units.
@@ -17,7 +17,7 @@ public class Chunk {
     /**
      * For creating new chunks.
      */
-    private static Block.BlockType[][] BLANK_CHUNK;
+    private static Block.BlockType[][] BLANK_CHUNK, DEFAULT_CHUNK;
 
     /**
      * Position.
@@ -26,9 +26,26 @@ public class Chunk {
 
     public static void initConstants() {
         BLANK_CHUNK = new Block.BlockType[CHUNK_WIDTH][CHUNK_HEIGHT];
+        DEFAULT_CHUNK = new Block.BlockType[CHUNK_WIDTH][CHUNK_HEIGHT];
         for (int i = 0; i < BLANK_CHUNK.length; ++i) {
             for (int j = 0; j < BLANK_CHUNK[0].length; ++j) {
-                BLANK_CHUNK[i][j] = AIR;
+                BLANK_CHUNK[i][j] = BlockType.AIR;
+            }
+        }
+        for (int i = 0; i < DEFAULT_CHUNK.length; ++i) {
+            for (int j = 0; j < DEFAULT_CHUNK[0].length; ++j) {
+                Block.BlockType type;
+                if (CHUNK_HEIGHT - j < 4) {
+                    type = BlockType.AIR;
+                } else if (CHUNK_WIDTH - j == 4) {
+                    type = BlockType.GRASS;
+                } else if (CHUNK_WIDTH - j < 8) {
+                    type = BlockType.DIRT;
+                } else {
+                    type = BlockType.STONE;
+                }
+                System.out.println(type);
+                DEFAULT_CHUNK[i][j] = type;
             }
         }
     }
@@ -39,7 +56,7 @@ public class Chunk {
      * @param yLoc vertical chunk. yLoc 2 means y-coords 32-47.
      */
     public Chunk(int xLoc, int yLoc) {
-        this(xLoc, yLoc, BLANK_CHUNK);
+        this(xLoc, yLoc, DEFAULT_CHUNK);
     }
 
     public Chunk(int xLoc, int yLoc, Block.BlockType[][] types) {
