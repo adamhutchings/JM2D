@@ -54,12 +54,14 @@ public class Block {
     }
 
     public void render() {
+        if (this.type == BlockType.AIR) return;
         Mesh renderMesh = new Mesh(MESH_POSITIONS, MESH_INDICES, MESH_TEXCOORDS);
         renderMesh.render(getTexture(this.type));
         renderMesh.delete();
     }
 
     public enum BlockType {
+        AIR,
         DIRT,
         GRASS,
         STONE,
