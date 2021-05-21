@@ -12,12 +12,17 @@ public class Chunk {
     public static final int CHUNK_WIDTH  = 16;
     public static final int CHUNK_HEIGHT = 16;
 
-    private final Block[][] blocks = new Block[CHUNK_WIDTH][CHUNK_HEIGHT];
+    private Block[][] blocks = new Block[CHUNK_WIDTH][CHUNK_HEIGHT];
 
     /**
      * For creating new chunks.
      */
     private static final Block.BlockType[][] BLANK_CHUNK;
+
+    /**
+     * Position.
+     */
+    public final int xPos, yPos;
 
     static {
         BLANK_CHUNK = new Block.BlockType[CHUNK_WIDTH][CHUNK_HEIGHT];
@@ -41,6 +46,8 @@ public class Chunk {
                 blocks[x][y] = new Block(xLoc * 16 + x, yLoc * 16 + y, types[x][y]);
             }
         }
+        this.xPos = xLoc;
+        this.yPos = yLoc;
     }
 
     public void render() {
@@ -49,6 +56,10 @@ public class Chunk {
                 block.render();
             }
         }
+    }
+
+    public void setBlock(int x, int y, Block.BlockType type) {
+        blocks[x][y] = new Block(xPos * 16 + x, yPos * 16 + x, type);
     }
 
 }
