@@ -3,6 +3,8 @@ package org.jm2d;
 import static org.jm2d.util.ErrorHandling.error;
 
 import org.jm2d.gl.*;
+import org.jm2d.world.Block;
+import org.jm2d.world.Chunk;
 import org.jm2d.world.World;
 
 /**
@@ -29,6 +31,7 @@ public final class JM2D {
         wn = new Window();
 
         Texture.createTextures();
+        Chunk.initConstants();
 
         try {
             shaderProgram = new Shader("block");
