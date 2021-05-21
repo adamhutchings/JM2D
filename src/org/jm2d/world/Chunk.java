@@ -42,7 +42,6 @@ public class Chunk {
                 } else {
                     type = BlockType.STONE;
                 }
-                System.out.println(type);
                 DEFAULT_CHUNK[i][j] = type;
             }
         }
