@@ -43,8 +43,12 @@ public class Block {
 
     private static Texture getTexture(BlockType t) {
         switch (t) {
+            case DIRT:
+                return Texture.DIRT_TEXTURE;
             case GRASS:
                 return Texture.GRASS_TEXTURE;
+            case STONE:
+                return Texture.STONE_TEXTURE;
         }
         return null;
     }
@@ -56,7 +60,9 @@ public class Block {
     }
 
     public enum BlockType {
-        GRASS, // more later
+        DIRT,
+        GRASS,
+        STONE,
     }
 
 }
