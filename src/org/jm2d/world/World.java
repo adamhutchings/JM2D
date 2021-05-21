@@ -7,17 +7,15 @@ import java.util.ArrayList;
  */
 public final class World {
 
-    ArrayList<Block> blocks = new ArrayList<>();
+    ArrayList<Chunk> chunks = new ArrayList<>();
 
     public World() {
-        blocks.add(new Block(0, 0, Block.BlockType.GRASS));
-        blocks.add(new Block(1, 0, Block.BlockType.DIRT));
-        blocks.add(new Block(2, 0, Block.BlockType.STONE));
+
     }
 
     public void render() {
-        for (Block block : blocks)
-            block.render();
+        for (Chunk chunk : chunks)
+            chunk.render();
     }
 
 }
